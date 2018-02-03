@@ -1,0 +1,3 @@
+﻿https://support.stripe.com/questions/accepting-ach-payments-with-stripe#ach-authorization
+
+I {{firstName}} {{lastName}}, authorize SocialLoans to electronically debit my {{bankName}} account ending in {{bankAccountLast4}} and, if necessary, electronically credit my account to correct erroneous debits.

@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SocialLoans\DAL\DAL.csproj" />
+    <ProjectReference Include="..\stripe-dotnet\src\Stripe.net\Stripe.net.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,70 @@
+﻿
+<div>
+    
+    <div class="row control-box">
+        <div class="col-sm-8">
+
+        </div>
+        <div class="col-sm-4">
+            <div class="navbar action-box">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="toolbaritem">
+                        <a href="javascript:;" (click)="newBankAccount(row)">
+                            <i class="fa fa-plus-circle">Add Account</i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!--<ngx-datable class="material colored-header sm table table-striped table-hover"
+                 [rows]="rows"
+                 [columns]="columns"
+                 [rowHeight]="35"
+                 [headerHeight]="35"
+                 [footerHeight]="35"
+                 [scrollBar]="true"
+                 [columnMode]="'force'">
+        
+    </ngx-datable>-->
+
+
+    <div>
+        <button>
+            Add Bank Account
+        </button>
+    </div>
+
+    <div>
+        <table>
+            <tr>
+                <th>AccountNumber</th>
+                <th>Bank</th>
+                <th>Verified</th>
+                <th>Authorized</th>
+            </tr>
+            <tr>
+                <td>XXXXXX4414</td>
+                <td>Bank of America</td>
+                <td>check mark</td>
+                <td>check mark</td>
+            </tr>
+        </table>
+    </div>
+
+    <div>
+        <form>
+            <label>Routing Number</label> <input type="text" />
+            <label>Account Number</label> <input type="text" />
+            <label>Name on Account</label> <input type="text" />
+            <div>
+                <button>Cancel</button>
+                <button>Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+l
