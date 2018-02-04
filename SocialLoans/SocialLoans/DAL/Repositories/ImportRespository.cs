@@ -22,7 +22,7 @@ namespace DAL.Repositories
     public class ImportRespository : Repository<Import>, IImportRepository
     {
         ApplicationDbContext context;
-        ILogger log;
+        ILog log;
 
         public class TableNames
         {
@@ -30,7 +30,7 @@ namespace DAL.Repositories
             public static string RoutingNumbers = "[SocialLoans].[dbo].[RoutingNumbers]";
         }
 
-        public ImportRespository(ApplicationDbContext context, ILogger log): base(context)
+        public ImportRespository(ApplicationDbContext context, ILog log): base(context)
         {
             this.context = context;
             this.log = log;

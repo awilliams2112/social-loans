@@ -2,7 +2,7 @@
 
 namespace SocialLoans.Logging
 {
-    public interface ILogger
+    public interface ILog
     {
         void Info(string message);
         void Debug(string message);

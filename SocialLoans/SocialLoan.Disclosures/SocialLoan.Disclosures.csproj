@@ -5,7 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SocialLoans.Util\SocialLoans.Util.csproj" />
     <ProjectReference Include="..\SocialLoans\DAL\DAL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Abstractions\" />
   </ItemGroup>
 
 </Project>

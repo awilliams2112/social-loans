@@ -8,7 +8,7 @@
 
 namespace SocialLoans.Logging
 {
-    public class NullLogger : ILogger
+    public class NullLogger : ILog
     {
         public void Debug(string message)
         {

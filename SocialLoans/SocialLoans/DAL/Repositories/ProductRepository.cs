@@ -21,10 +21,7 @@ namespace DAL.Repositories
     {
         public ProductRepository(DbContext context) : base(context)
         { }
-
-
-
-
+        
         private ApplicationDbContext _appContext => (ApplicationDbContext)_context;
     }
 }

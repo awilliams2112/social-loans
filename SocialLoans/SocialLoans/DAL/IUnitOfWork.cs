@@ -28,6 +28,7 @@ namespace DAL
         IBankAccountRepository BankAccounts { get; }
         ITransactionRepository Transactions { get; }
         IImportRepository Imports { get; }
+        IAccountRepository Accounts { get; }
 
         IDbContextTransaction BeginTransaction();
 

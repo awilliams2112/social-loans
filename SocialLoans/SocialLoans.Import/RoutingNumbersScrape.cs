@@ -20,9 +20,9 @@ namespace SocialLoans.Importers
 
         List<Import_RoutingNumber_DTO> entries = new List<Import_RoutingNumber_DTO>();
 
-        ILogger log;
+        ILog log;
 
-        public RoutingNumbersScrape(ILogger log)
+        public RoutingNumbersScrape(ILog log)
         {
             this.log = log;
         }

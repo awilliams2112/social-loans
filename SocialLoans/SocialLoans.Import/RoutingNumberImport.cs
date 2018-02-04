@@ -14,9 +14,9 @@ namespace SocialLoans.Importers
     {
         IUnitOfWork unitOfWork;
         RoutingNumbersScrape scrape;
-        ILogger log;
+        ILog log;
 
-        public RoutingNumberImport(IUnitOfWork unitOfWork, ILogger log)
+        public RoutingNumberImport(IUnitOfWork unitOfWork, ILog log)
         {
             this.unitOfWork = unitOfWork;
             this.log = log;

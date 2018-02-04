@@ -33,12 +33,12 @@ namespace DAL
 
         IDisclosureRepository _disclosures;
 
-
+        IAccountRepository _accounts;
         IImportRepository _imports;
 
-        ILogger log;
+        ILog log;
 
-        public UnitOfWork(ApplicationDbContext context, ILogger log)
+        public UnitOfWork(ApplicationDbContext context, ILog log)
         {
             _context = context;
             this.log = log;
@@ -145,6 +145,18 @@ namespace DAL
             }
         }
 
+        public IAccountRepository Accounts
+        {
+            get
+            {
+                if (_accounts == null)
+                    _accounts = new AccountRespository(_context, log);
+
+                return _accounts;
+            }
+        }
+
+     
         public IDbContextTransaction BeginTransaction()
         {
             return _context.Database.BeginTransaction();

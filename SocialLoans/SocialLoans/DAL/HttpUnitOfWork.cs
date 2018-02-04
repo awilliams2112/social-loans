@@ -19,7 +19,7 @@ namespace DAL
 {
     public class HttpUnitOfWork : UnitOfWork
     {
-        public HttpUnitOfWork(ApplicationDbContext context, IHttpContextAccessor httpAccessor, ILogger log) : base(context, log)
+        public HttpUnitOfWork(ApplicationDbContext context, IHttpContextAccessor httpAccessor, ILog log) : base(context, log)
         {
             context.CurrentUserId = httpAccessor.HttpContext.User.FindFirst(OpenIdConnectConstants.Claims.Subject)?.Value?.Trim();
         }

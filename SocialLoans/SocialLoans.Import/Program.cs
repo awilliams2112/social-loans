@@ -36,7 +36,7 @@ namespace SocialLoans.Importers
         }
     }
 
-    class ConsoleLogger : ILogger
+    class ConsoleLogger : ILog
     {
         public void Debug(string message)
         {

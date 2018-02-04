@@ -181,7 +181,7 @@ namespace SocialLoans
 
 
             // Repositories
-            services.AddScoped<SocialLoans.Logging.ILogger, SocialLoans.Logging.NullLogger>();
+            services.AddScoped<SocialLoans.Logging.ILog, SocialLoans.Logging.NullLogger>();
             services.AddScoped<IUnitOfWork, HttpUnitOfWork>();
             services.AddScoped<IAccountManager, AccountManager>();
 
