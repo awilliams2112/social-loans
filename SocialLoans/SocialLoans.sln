@@ -33,9 +33,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocialLoans.Logging", "Soci
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sandbox", "sandbox", "{0E50A785-8EEB-4A1B-B322-027C150FB417}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication2", "WebApplication2\WebApplication2.csproj", "{9B92B614-1485-4063-9B00-461F18D17C35}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication2", "WebApplication2\WebApplication2.csproj", "{9B92B614-1485-4063-9B00-461F18D17C35}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication3", "WebApplication3\WebApplication3.csproj", "{B74AAD06-2606-4CD7-B1AC-6152183A25D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication3", "WebApplication3\WebApplication3.csproj", "{B74AAD06-2606-4CD7-B1AC-6152183A25D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialLoans.Domain", "SocialLoans.Domain\SocialLoans.Domain.csproj", "{763C5C19-F194-4550-8E2A-68B9CF068272}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialLoans.Communications", "SocialLoans.Communications\SocialLoans.Communications.csproj", "{84976278-C0CF-4FD5-9E1A-D135EA1DB260}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,6 +103,14 @@ Global
 		{B74AAD06-2606-4CD7-B1AC-6152183A25D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B74AAD06-2606-4CD7-B1AC-6152183A25D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B74AAD06-2606-4CD7-B1AC-6152183A25D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{763C5C19-F194-4550-8E2A-68B9CF068272}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{763C5C19-F194-4550-8E2A-68B9CF068272}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{763C5C19-F194-4550-8E2A-68B9CF068272}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{763C5C19-F194-4550-8E2A-68B9CF068272}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84976278-C0CF-4FD5-9E1A-D135EA1DB260}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84976278-C0CF-4FD5-9E1A-D135EA1DB260}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84976278-C0CF-4FD5-9E1A-D135EA1DB260}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84976278-C0CF-4FD5-9E1A-D135EA1DB260}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -117,6 +129,8 @@ Global
 		{16E9C1C0-FF0E-4792-8C0B-3136F89C5757} = {5287FC1C-DFF8-4854-8D2A-4834FB28290D}
 		{84C545AC-F65E-4B56-86AE-75B1C68FB882} = {5287FC1C-DFF8-4854-8D2A-4834FB28290D}
 		{BC9D84CB-CA39-4C69-9A73-2E593F6C2CE2} = {5287FC1C-DFF8-4854-8D2A-4834FB28290D}
+		{763C5C19-F194-4550-8E2A-68B9CF068272} = {5287FC1C-DFF8-4854-8D2A-4834FB28290D}
+		{84976278-C0CF-4FD5-9E1A-D135EA1DB260} = {5287FC1C-DFF8-4854-8D2A-4834FB28290D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C6656E5E-22DD-4333-A2D8-8A11E954E00D}

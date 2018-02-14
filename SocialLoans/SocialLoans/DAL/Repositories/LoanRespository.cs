@@ -23,14 +23,14 @@ namespace DAL.Repositories
             this.context = context;
         }
 
-        public List<Loan> GetAllLoansAsBorrower(string applicationUserId)
+        public List<Loan> GetAllLoansAsBorrower(string userId)
         {
-            return context.Loans.Where(l => l.BorrowerId == applicationUserId).ToList();
+            return context.Loans.Where(l => l.BorrowerId == userId).ToList();
         }
 
         public List<Loan> GetLoansInNegativeStatus(string userId)
         {
-            return context.Loans.Where(l => l.LoanStatus.IsNegative).ToList();
+            return context.Loans.Where(l => l.BorrowerId == userId && l.LoanStatus.IsNegative).ToList();
         }
     }
 }

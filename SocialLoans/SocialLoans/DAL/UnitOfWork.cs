@@ -28,7 +28,6 @@ namespace DAL
 
         ILoanRespository _loans;
         ILoanApplicationsRepository _loanApplications; 
-        IBankAccountRepository _bankAccounts; 
         ITransactionRepository _transactions; 
 
         IDisclosureRepository _disclosures;
@@ -111,17 +110,6 @@ namespace DAL
                 return _loanApplications;
             }
         } 
-
-        public IBankAccountRepository BankAccounts
-        {
-            get
-            {
-                if (_bankAccounts == null)
-                    _bankAccounts = new BankAccountRepository(_context);
-
-                return _bankAccounts;
-            }
-        }
 
         public ITransactionRepository Transactions
         {

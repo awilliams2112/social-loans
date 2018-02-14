@@ -16,10 +16,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using DAL.Models.Interfaces;
+using DAL.New;
 
 namespace DAL
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>, IDatabaseContext
     {
         public string CurrentUserId { get; set; }
         public DbSet<Customer> Customers { get; set; }
@@ -43,6 +44,8 @@ namespace DAL
 
         public DbSet<Import> Imports { get; set; }
         public DbSet<Import_RoutingNumber_DTO> Import_RoutingNumbers { get; set; }
+
+        public DbSet<LogEntry> Logs { get; set; }
 
         public ApplicationDbContext(DbContextOptions options) : base(options)
         { }

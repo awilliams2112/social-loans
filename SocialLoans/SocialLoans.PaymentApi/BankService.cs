@@ -1,6 +1,9 @@
 ﻿using DAL;
 using DAL.Core.Interfaces;
+using DAL.Domains;
+using DAL.Domains.Abstractions;
 using DAL.Models;
+using DAL.New;
 using SocialLoans.PaymentApi.Stripe;
 using Stripe;
 using System;
@@ -19,27 +22,26 @@ namespace SocialLoans.PaymentApi
 
     public class BankService : IBankService
     {
-        IUnitOfWork unitOfWork;
+        IDataDomains dataLayer;
         IAccountManager accountManager;
         IStripeService stripeService;
+        IPaymentsDAL paymentRepo;
 
-        public BankService(IUnitOfWork unitOfWork, IAccountManager accountManager, IStripeService stripeService)
+        public BankService(IDataDomains dataLayer, IAccountManager accountManager, IStripeService stripeService)
         {
-            this.unitOfWork = unitOfWork;
+            this.paymentRepo = dataLayer.PaymentDomainDL;
             this.accountManager = accountManager;
             this.stripeService = stripeService;
         }
 
         public void AddBankAccount(BankAccount bankAccount)
         {
-            unitOfWork.BankAccounts.Add(bankAccount);
-
-            unitOfWork.SaveChanges();
+            paymentRepo.InsertBankAccount(bankAccount);
         }
 
         public List<BankAccount> GetBankAccounts(string currentUserId)
         {
-            return unitOfWork.BankAccounts.Find(b => b.UserId == currentUserId).ToList();
+            return null;
         }
 
         public void UpdateBankAccount(BankAccount bankAccount)
@@ -50,7 +52,8 @@ namespace SocialLoans.PaymentApi
         public BankAccountVerifyResult VerifyAccount(BankAccountVerification bv)
         {
 
-            BankAccount acct = unitOfWork.BankAccounts.Get(bv.BankAccountId);
+            BankAccount acct = paymentRepo.GetBankAccount(bv.BankAccountId);
+
             ApplicationUser user = accountManager.GetUserByIdAsync(acct.UserId).Result;
 
             BankAccountVerifyResult result = new BankAccountVerifyResult();

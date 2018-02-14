@@ -13,7 +13,7 @@ namespace SocialLoans.PaymentApi
     public class PaymentService : IPaymentService
     {
         IAccountManager _accountManager;
-
+    
         public PaymentService(IAccountManager accountManager)
         {
             _accountManager = accountManager;

@@ -52,9 +52,9 @@ namespace SocialLoans.Qualifications
                 return result;
             }
 
-            
 
-            BankAccount activeBankAccount = unitOfWork.BankAccounts.GetActive(userId);
+
+            BankAccount activeBankAccount = null; // unitOfWork.BankAccounts.GetActive(userId);
 
             if (activeBankAccount == null)
             {

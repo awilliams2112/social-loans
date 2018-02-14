@@ -25,7 +25,6 @@ namespace DAL
         IDisclosureRepository Disclosures { get; }
         ILoanRespository Loans { get; }
         ILoanApplicationsRepository LoanApplications { get; }
-        IBankAccountRepository BankAccounts { get; }
         ITransactionRepository Transactions { get; }
         IImportRepository Imports { get; }
         IAccountRepository Accounts { get; }

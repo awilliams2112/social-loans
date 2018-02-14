@@ -17,7 +17,6 @@ namespace DAL.Core.Interfaces
 {
     public interface IAccountManager
     {
-
         Task<bool> CheckPasswordAsync(ApplicationUser user, string password);
         Task<Tuple<bool, string[]>> CreateRoleAsync(ApplicationRole role, IEnumerable<string> claims);
         Task<Tuple<bool, string[]>> CreateUserAsync(ApplicationUser user, IEnumerable<string> roles, string password);
