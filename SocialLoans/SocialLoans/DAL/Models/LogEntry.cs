@@ -8,6 +8,8 @@ namespace DAL.Models
     {
         public int Id { get; set; }
         public string Message { get; set; }
+        public string UserEmail { get; set; }
+        public string Method { get; set; }
         public DateTime TimeStamp { get; set; }
     }
 }

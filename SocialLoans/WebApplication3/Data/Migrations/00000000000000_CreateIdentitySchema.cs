@@ -125,6 +125,7 @@ namespace WebApplication3.Data.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+            
 
             migrationBuilder.CreateTable(
                 name: "AspNetUserRoles",

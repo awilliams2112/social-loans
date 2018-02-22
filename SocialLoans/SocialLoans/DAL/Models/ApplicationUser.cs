@@ -18,6 +18,9 @@ namespace DAL.Models
 {
     public class ApplicationUser : IdentityUser, IAuditableEntity
     {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
         public virtual string FriendlyName
         {
             get
@@ -37,7 +40,7 @@ namespace DAL.Models
         public string Configuration { get; set; }
         public bool IsEnabled { get; set; }
         public bool IsLockedOut => this.LockoutEnabled && this.LockoutEnd >= DateTimeOffset.UtcNow;
-
+        public DateTime DateOfBirth { get; set; }
         public string CreatedBy { get; set; }
         public string UpdatedBy { get; set; }
         public DateTime CreatedDate { get; set; }
@@ -60,5 +63,12 @@ namespace DAL.Models
         /// </summary>
         public ICollection<Order> Orders { get; set; }
         public string StripeIdCustomer { get; set; }
+
+        public string Address1 { get; set; }
+        public string Address2 { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string Zip { get; set; }
+        public string SsnLast4 { get; set; }
     }
 }

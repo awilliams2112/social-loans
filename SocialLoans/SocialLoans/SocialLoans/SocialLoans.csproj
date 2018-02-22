@@ -27,7 +27,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\SocialLoans.Logging\SocialLoans.Logging.csproj" />
-    <ProjectReference Include="..\..\SocialLoans.PaymentApi\SocialLoans.PaymentApi.csproj" />
+    <ProjectReference Include="..\..\SocialLoans.PaymentApi\SocialLoans.Payments.csproj" />
     <ProjectReference Include="..\DAL\DAL.csproj" />
   </ItemGroup>
 

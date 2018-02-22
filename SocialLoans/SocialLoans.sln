@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocailLoans.Stripe", "Socai
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stripe.net", "stripe-dotnet\src\Stripe.net\Stripe.net.csproj", "{E6284944-09B1-4195-B89F-7FC89FA9160F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocialLoans.PaymentApi", "SocialLoans.PaymentApi\SocialLoans.PaymentApi.csproj", "{B64C9A0C-528E-490C-9A8A-D8C7B270914C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocialLoans.Payments", "SocialLoans.PaymentApi\SocialLoans.Payments.csproj", "{B64C9A0C-528E-490C-9A8A-D8C7B270914C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocialLoan.Disclosures", "SocialLoan.Disclosures\SocialLoan.Disclosures.csproj", "{D2D1632D-A952-4633-B93B-BEF35690ECB5}"
 EndProject
@@ -37,9 +37,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication2", "WebAppli
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication3", "WebApplication3\WebApplication3.csproj", "{B74AAD06-2606-4CD7-B1AC-6152183A25D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialLoans.Domain", "SocialLoans.Domain\SocialLoans.Domain.csproj", "{763C5C19-F194-4550-8E2A-68B9CF068272}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocialLoans.Domain", "SocialLoans.Domain\SocialLoans.Domain.csproj", "{763C5C19-F194-4550-8E2A-68B9CF068272}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialLoans.Communications", "SocialLoans.Communications\SocialLoans.Communications.csproj", "{84976278-C0CF-4FD5-9E1A-D135EA1DB260}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocialLoans.Communications_OLD", "SocialLoans.Communications\SocialLoans.Communications_OLD.csproj", "{84976278-C0CF-4FD5-9E1A-D135EA1DB260}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocialLoans.Web", "SocialLoans.Web\SocialLoans.Web.csproj", "{C615E1F6-BE80-4393-9EF7-A2FD8AC01695}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocialLoans.Net", "SocialLoans\SocialLoans.Net\SocialLoans.Net.csproj", "{A22F407D-075B-4FF6-A370-65BE7648BA5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialLoans.Communications.Test", "SocialLoans.Communications.Test\SocialLoans.Communications.Test.csproj", "{62FB9F39-181F-46CB-B0C1-9F29B6A50F5C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocialLoans.Communications", "SocialLoans.Communications\SocialLoans.Communications.csproj", "{0FFD7402-5ED9-425D-B3C2-BA581AB82680}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialLoans.Utilities", "SocialLoans.Utilities\SocialLoans.Utilities.csproj", "{BBA7D431-85DF-408A-B0B4-EFEDCD417AF7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -111,6 +121,26 @@ Global
 		{84976278-C0CF-4FD5-9E1A-D135EA1DB260}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84976278-C0CF-4FD5-9E1A-D135EA1DB260}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84976278-C0CF-4FD5-9E1A-D135EA1DB260}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C615E1F6-BE80-4393-9EF7-A2FD8AC01695}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C615E1F6-BE80-4393-9EF7-A2FD8AC01695}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C615E1F6-BE80-4393-9EF7-A2FD8AC01695}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C615E1F6-BE80-4393-9EF7-A2FD8AC01695}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A22F407D-075B-4FF6-A370-65BE7648BA5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A22F407D-075B-4FF6-A370-65BE7648BA5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A22F407D-075B-4FF6-A370-65BE7648BA5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A22F407D-075B-4FF6-A370-65BE7648BA5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62FB9F39-181F-46CB-B0C1-9F29B6A50F5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62FB9F39-181F-46CB-B0C1-9F29B6A50F5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62FB9F39-181F-46CB-B0C1-9F29B6A50F5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62FB9F39-181F-46CB-B0C1-9F29B6A50F5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FFD7402-5ED9-425D-B3C2-BA581AB82680}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FFD7402-5ED9-425D-B3C2-BA581AB82680}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FFD7402-5ED9-425D-B3C2-BA581AB82680}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FFD7402-5ED9-425D-B3C2-BA581AB82680}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBA7D431-85DF-408A-B0B4-EFEDCD417AF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBA7D431-85DF-408A-B0B4-EFEDCD417AF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBA7D431-85DF-408A-B0B4-EFEDCD417AF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBA7D431-85DF-408A-B0B4-EFEDCD417AF7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -129,8 +159,15 @@ Global
 		{16E9C1C0-FF0E-4792-8C0B-3136F89C5757} = {5287FC1C-DFF8-4854-8D2A-4834FB28290D}
 		{84C545AC-F65E-4B56-86AE-75B1C68FB882} = {5287FC1C-DFF8-4854-8D2A-4834FB28290D}
 		{BC9D84CB-CA39-4C69-9A73-2E593F6C2CE2} = {5287FC1C-DFF8-4854-8D2A-4834FB28290D}
+		{9B92B614-1485-4063-9B00-461F18D17C35} = {0E50A785-8EEB-4A1B-B322-027C150FB417}
+		{B74AAD06-2606-4CD7-B1AC-6152183A25D5} = {0E50A785-8EEB-4A1B-B322-027C150FB417}
 		{763C5C19-F194-4550-8E2A-68B9CF068272} = {5287FC1C-DFF8-4854-8D2A-4834FB28290D}
 		{84976278-C0CF-4FD5-9E1A-D135EA1DB260} = {5287FC1C-DFF8-4854-8D2A-4834FB28290D}
+		{C615E1F6-BE80-4393-9EF7-A2FD8AC01695} = {5287FC1C-DFF8-4854-8D2A-4834FB28290D}
+		{A22F407D-075B-4FF6-A370-65BE7648BA5B} = {5287FC1C-DFF8-4854-8D2A-4834FB28290D}
+		{62FB9F39-181F-46CB-B0C1-9F29B6A50F5C} = {5287FC1C-DFF8-4854-8D2A-4834FB28290D}
+		{0FFD7402-5ED9-425D-B3C2-BA581AB82680} = {5287FC1C-DFF8-4854-8D2A-4834FB28290D}
+		{BBA7D431-85DF-408A-B0B4-EFEDCD417AF7} = {5287FC1C-DFF8-4854-8D2A-4834FB28290D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C6656E5E-22DD-4333-A2D8-8A11E954E00D}

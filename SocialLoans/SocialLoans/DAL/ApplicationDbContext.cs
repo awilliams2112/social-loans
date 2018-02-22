@@ -47,6 +47,7 @@ namespace DAL
 
         public DbSet<LogEntry> Logs { get; set; }
 
+        public DbSet<PhoneCode> PhoneCodes { get; set; }
         public ApplicationDbContext(DbContextOptions options) : base(options)
         { }
 

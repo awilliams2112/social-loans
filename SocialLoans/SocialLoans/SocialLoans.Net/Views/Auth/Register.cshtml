@@ -1,0 +1,74 @@
+﻿@model SocialLoans.Net.Models.RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+
+<div class="register-container">
+
+    <h2>@ViewData["Title"]</h2>
+
+    <div class="row">
+            <form asp-route-returnUrl="@ViewData["ReturnUrl"]" method="post">
+                <h4>Create a new account.</h4>
+                
+                @foreach(string err in Model.Errors)
+                {
+                    <p class="text-danger">@err</p>
+                }
+
+                <hr />
+                <div class="form-group">
+                    <label asp-for="FirstName"></label>
+                    <input asp-for="FirstName" class="form-control" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LastName"></label>
+                    <input asp-for="LastName" class="form-control" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DobString"></label>
+                    <input asp-for="DobString" class="form-control" placeholder="DD/MM/YYYY" />
+                    <span asp-validation-for="DobString" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password"></label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ConfirmPassword"></label>
+                    <input asp-for="ConfirmPassword" class="form-control" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.CheckBoxFor(m => m.AgreeToTermsOfService)
+                    <label asp-for="AgreeToTermsOfService"></label>
+                    <span asp-validation-for="AgreeToTermsOfService" class="text-danger"></span>
+                </div>
+                <button type="submit" class="btn btn-default">Register</button>
+                <div class="form-group">
+                    <p>
+                        Already have an account?<a href="~/login"> login here</a>
+                    </p>
+                </div>
+            </form>
+        
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}
+
+@section Styles {
+
+    <link rel="stylesheet" href="~/css/login.component.css" />
+}
