@@ -27,11 +27,11 @@ namespace SocialLoans.PaymentApi
         IAccountManager accountManager;
         IStripeService stripeService;
         IPaymentsDAL paymentRepo;
-
         static List<RoutingNumber> routingNumbers; //TODO adding caching
 
         public BankService(IDataDomains dataLayer, IAccountManager accountManager, IStripeService stripeService)
         {
+            this.dataLayer = dataLayer;
             this.paymentRepo = dataLayer.PaymentDomainDL;
             this.accountManager = accountManager;
             this.stripeService = stripeService;

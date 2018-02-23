@@ -198,7 +198,6 @@ namespace SocialLoans.Controllers
         }
 
         [HttpPost("~/api/auth/phone/confirm")]
-        //[Produces(typeof(PhoneConfirmResult))]
         public IActionResult PhoneConfirmCode(string phone, string code)
         {
             

@@ -29,7 +29,7 @@ namespace DAL
         {
             get
             {
-                if (logging != null)
+                if (logging == null)
                 {
                     logging = new LoggingDAL(context);
                 }
@@ -41,7 +41,7 @@ namespace DAL
         {
             get
             {
-                if (paymentDomainDL != null)
+                if (paymentDomainDL == null)
                 {
                     paymentDomainDL = new PaymentDAL(context);
                 }

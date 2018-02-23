@@ -41,11 +41,18 @@
 
 <div class="add-bank-account-container">
 
+    <h2>Add Bank Account</h2>
+
+    <p>Enter bank you'd like to receive payments to</p>
+
     <div class="row">
         <form id="add-bank-account-form">
+            <div id= "confirm-phone-error-message">
+
+            </div>
             <div class="form-group">
                 <label>Routing Number *</label>
-                <input id="routing-number-input" class="form-control"/>
+                <input name="routingNumber" id="routing-number-input" class="form-control"/>
             </div>
             <div class="form-group">
                 <label>Bank Name</label>
@@ -53,11 +60,7 @@
             </div>
             <div class="form-group">
                 <label>Account Number *</label>
-                <input class="form-control" />
-            </div>
-            <div class="form-group">
-                <label>Name</label>
-                <input class="form-control" />
+                <input name="account" class="form-control" />
             </div>
 
             <button class="btn btn-default">Add</button>
@@ -70,11 +73,15 @@
     @await Html.PartialAsync("_ValidationScriptsPartial")
 
     <script>
+
+        //confirm phone number
         $(document).ready(function () {
 
             var model = {};
 
             showPhoneContainer();
+
+
 
             $('#form-phone').submit(function (e) {
 
@@ -119,10 +126,21 @@
                 showPhoneContainer();
             });
 
-            function showConfirmContainer() {
+            function showConfirmContainer(errorMsg) {
 
                 $('#form-phone-container').hide();
                 $('#form-confirm-container').show();
+
+                if (errorMsg && errorMsg != ' ') {
+
+                    $('.confirm-phone-error-message').show();
+                    $('.confirm-phone-error-message').html('<p class="text-danger">' + errorMsg + '</p>');
+                }
+                else {
+
+                    $('.confirm-phone-error-message').hide();
+                }
+
             }
 
             function showPhoneContainer() {
@@ -130,8 +148,14 @@
                 $('#form-phone-container').show();
                 $('#form-confirm-container').hide();
             }
+
+            function showSuccessContainer() {
+
+                $('#phone-confirm-success').show();
+            }
         });
 
+        //bank account;
         $(document).ready(function () {
 
             $('#routing-number-input').change(function (e) {
@@ -140,18 +164,45 @@
 
                 $.get('api/common/bankNames?routingNumber=' + routingNumber).done(function (result) {
 
-                    if (result.success) {
+                    if (result && result.success) {
+                        
+                        $('#bank-name-label').text(result.bankName);
+                    }
+                    else {
 
-                        $('#bank-name-label').val(result.bankName);
+                        $('#bank-name-label').text(' ');
                     }
                     
                 });
 
             });
-            
-        });
-        
 
+            $('#add-bank-account-form').submit(function (e) {
+
+                e.preventDefault();
+
+                var account = $('#add-bank-account-form input[value=account]').val();
+                var routingNumber = $('#add-bank-account-form input[value=routingNumber]').val();
+
+                $.post('api/account/bank/',
+                    {
+                        account: account,
+                        routingNumber: routingNumber
+
+                    }).done(function (result) {
+
+                        if (result && result.success) {
+                            
+                        }
+
+
+                    }).fail(function (error) {
+
+                });
+            });
+        });
+            
+        //
         
     </script>
 }
