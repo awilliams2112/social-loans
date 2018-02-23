@@ -23,6 +23,7 @@ using Microsoft.AspNetCore.JsonPatch;
 using DAL.Core;
 using SocialLoans.PaymentApi;
 using SocialLoans.Net.Models;
+using SocialLoans.Logging;
 
 namespace SocialLoans.Controllers
 {
@@ -32,27 +33,40 @@ namespace SocialLoans.Controllers
         private readonly IAccountManager _accountManager;
         private readonly IAuthorizationService _authorizationService;
         IBankService bankService;
+        ILog log;
+
+
 
         private const string GetUserByIdActionName = "GetUserById";
         private const string GetRoleByIdActionName = "GetRoleById";
 
-        public AccountController(IAccountManager accountManager, IAuthorizationService authorizationService, IBankService bankService)
+        public AccountController(IAccountManager accountManager,
+            IAuthorizationService authorizationService, 
+            ILog log,
+            IBankService bankService)
         {
             _accountManager = accountManager;
             _authorizationService = authorizationService;
             this.bankService = bankService;
+            this.log = log;
         }
-
         
-
-        [AllowAnonymous]
-        [HttpPost("~/account/setup")]
+        [HttpGet("~/account/setup")]
         public IActionResult AccountSetup()
-        {
+        { 
+            ApplicationUser user = _accountManager.GetUserByEmailAsync(HttpContext.User.Identity.Name).Result;
+
+            if(user == null)
+            {
+                //TODO Logging
+                this.log.Error("Account Setup User Not Found");
+                throw new Exception("User not found");
+            }
+            
             return View();
         }
 
-        [HttpGet("~/account/setup/confirm-phone")]
+        [HttpGet("~/account/phone/confirm")]
         public IActionResult ConfirmPhone()
         {
             return View();

@@ -17,6 +17,7 @@ namespace DAL
         ApplicationDbContext context;
 
         ILoggingDAL logging;
+        IPaymentsDAL paymentDomainDL;
 
         public DataDomains(ApplicationDbContext context, ILog log)
         {
@@ -36,7 +37,17 @@ namespace DAL
             }
         }
 
-        public IPaymentsDAL PaymentDomainDL => throw new NotImplementedException();
+        public IPaymentsDAL PaymentDomainDL
+        {
+            get
+            {
+                if (paymentDomainDL != null)
+                {
+                    paymentDomainDL = new PaymentDAL(context);
+                }
+                return paymentDomainDL;
+            }
+        }
 
         public IDbContextTransaction BeginTransaction()
         {

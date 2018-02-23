@@ -94,7 +94,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SmsTests.cs" />
+    <Compile Include="CommunicationServiceTests.cs" />
+    <Compile Include="SmsSenderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -109,6 +110,14 @@
       <Project>{bc9d84cb-ca39-4c69-9a73-2e593f6c2ce2}</Project>
       <Name>SocialLoans.Logging</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SocialLoans\DAL\DAL.csproj">
+      <Project>{39D173E1-EC94-4408-850C-4B561BDBA037}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Integration\" />
+    <Folder Include="Unit\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

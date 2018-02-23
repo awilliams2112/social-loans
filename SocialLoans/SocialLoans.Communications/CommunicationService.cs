@@ -24,6 +24,12 @@ namespace SocialLoans.Communications
 
         public void SendPhoneCodeSms(PhoneCode phoneCode)
         {
+            if(string.IsNullOrEmpty(phoneCode.Code))
+            {
+                //TODO exception
+                throw new Exception("Phone Code cannot be empty");
+            }
+
             Dictionary<string, string> tokens = new Dictionary<string, string>();
             tokens.Add("code", phoneCode.Code);
             

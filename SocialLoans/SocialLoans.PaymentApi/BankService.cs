@@ -18,6 +18,7 @@ namespace SocialLoans.PaymentApi
         void AddBankAccount(BankAccount bankAccount);
         List<BankAccount> GetBankAccounts(string currentUserId);
         BankAccountVerifyResult VerifyAccount(BankAccountVerification bv);
+        string GetBankName(string routingNumber);
     }
 
     public class BankService : IBankService
@@ -27,11 +28,14 @@ namespace SocialLoans.PaymentApi
         IStripeService stripeService;
         IPaymentsDAL paymentRepo;
 
+        static List<RoutingNumber> routingNumbers; //TODO adding caching
+
         public BankService(IDataDomains dataLayer, IAccountManager accountManager, IStripeService stripeService)
         {
             this.paymentRepo = dataLayer.PaymentDomainDL;
             this.accountManager = accountManager;
             this.stripeService = stripeService;
+            routingNumbers = new List<RoutingNumber>();
         }
 
         public void AddBankAccount(BankAccount bankAccount)
@@ -76,6 +80,28 @@ namespace SocialLoans.PaymentApi
 
             return result;
         }
+
+        public string GetBankName(string routingNumber)
+        {
+            string bankName = string.Empty;
+
+            if(routingNumbers.Count == 0)
+            {
+                routingNumbers = dataLayer.PaymentDomainDL.GetAllRoutingNumbers();
+            }
+
+            routingNumber = routingNumber.Trim();
+
+            RoutingNumber rnObj = routingNumbers.FirstOrDefault(r => r.AbaNumber == routingNumber);
+
+            if(rnObj != null)
+            {
+                bankName = rnObj.BankName;
+            }
+
+            return bankName;
+        }
+
     }
 }
 

@@ -160,7 +160,7 @@ namespace SocialLoans.Controllers
                 {
                     await _signInManager.SignInAsync(user, isPersistent: false);
 
-                    RedirectToAction("AccountSetup", "Account");
+                    return RedirectToAction("AccountSetup", "Account");
                 }
 
 
@@ -178,11 +178,11 @@ namespace SocialLoans.Controllers
             return View();
         }
 
-        [HttpPost("~/api/auth/phone")]
+        [HttpPost("~/api/auth/phone/send-code")]
         public IActionResult SendPhoneConfirmCode(string phone)
         {
             string username = HttpContext.User.Identity.Name;
-
+            
             ApplicationUser user = _accountManager.GetUserByEmailAsync(username).Result;
             
             if(user == null)
@@ -198,24 +198,25 @@ namespace SocialLoans.Controllers
         }
 
         [HttpPost("~/api/auth/phone/confirm")]
-        [Produces(typeof(PhoneConfirmResult))]
-        public IActionResult PhoneConfirmCode(PhoneConfirmModel model)
+        //[Produces(typeof(PhoneConfirmResult))]
+        public IActionResult PhoneConfirmCode(string phone, string code)
         {
+            
             string username = HttpContext.User.Identity.Name;
 
             ApplicationUser user = _accountManager.GetUserByEmailAsync(username).Result;
 
             if (user == null)
             {
-
                 _logging.Error($"USER {user.Email} NOT FOUND");
 
-                return BadRequest("user not found");   
+                return BadRequest("user not found");
             }
 
-            PhoneConfirmResult result = socialLoansAuthentication.PhoneConfirm(user.Email, model.Code);
+            PhoneConfirmResult result = socialLoansAuthentication.PhoneConfirm(user.Email, phone, code);
 
             return Ok(result);
+            
         }
 
 

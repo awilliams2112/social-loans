@@ -33,8 +33,8 @@ namespace SocialLoans
 
             var builder = new DbContextOptionsBuilder<ApplicationDbContext>();
 
-            builder.UseSqlServer(configuration["ConnectionStrings:DefaultConnection"], b => b.MigrationsAssembly("SocialLoans"));
-            builder.UseOpenIddict();
+            builder.UseSqlServer(configuration["ConnectionStrings:DefaultConnection"], b => b.MigrationsAssembly("SocialLoans.Net"));
+            //builder.UseOpenIddict();
             
             return new ApplicationDbContext(builder.Options);
         }

@@ -13,7 +13,13 @@ namespace SocialLoan.Utilities
 
             foreach (var val in tokens)
             {
-                output.ToString().Replace("{{" + val.Key + " }}", val.Value);
+
+                string key = "{{" + val.Key + "}}";
+
+                
+                output = output.Replace(key, val.Value);
+
+                string test = template.Replace(key, val.Value);
             }
 
             return output;

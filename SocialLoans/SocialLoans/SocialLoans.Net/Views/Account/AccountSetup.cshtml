@@ -3,5 +3,160 @@
     ViewData["Title"] = "AccountSetup";
 }
 
-<h2>AccountSetup</h2>
 
+<div class="account-setup-container">
+    <h2>Add Phone Number</h2>
+
+    <p>Lets verify your phone number</p>
+
+
+    <div class="row">
+        <div id="form-phone-container">
+            <form id="form-phone">
+                <div class="form-group">
+                    <label>Enter Phone</label>
+                    <input id="phoneNumber" type="text" class="form-control" placeholder="" />
+                </div>
+                <button id="" class="btn btn-default">Send Code</button>
+
+            </form>
+
+        </div>
+
+        <div id="form-confirm-container">
+            <form id="form-confirm" action="~/api/auth/phone/confirm" >
+                <div class="form-group">
+                    <label>Enter Code</label>
+                    <input id="phone-code-input" type="text" class="form-control" />
+                </div>
+                <button class="btn btn-default">Confirm</button>
+
+            </form>
+
+            <a id="send-again-link" href="#">Send Code Again</a>
+        </div>
+
+    </div>
+</div>
+
+<div class="add-bank-account-container">
+
+    <div class="row">
+        <form id="add-bank-account-form">
+            <div class="form-group">
+                <label>Routing Number *</label>
+                <input id="routing-number-input" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label>Bank Name</label>
+                <label id="bank-name-label"></label>
+            </div>
+            <div class="form-group">
+                <label>Account Number *</label>
+                <input class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Name</label>
+                <input class="form-control" />
+            </div>
+
+            <button class="btn btn-default">Add</button>
+        </form>
+    </div>
+
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+
+    <script>
+        $(document).ready(function () {
+
+            var model = {};
+
+            showPhoneContainer();
+
+            $('#form-phone').submit(function (e) {
+
+                e.preventDefault();
+
+                model.phoneNumber = $('#phoneNumber').val();
+
+                $.post('/api/auth/phone/send-code', { phone: model.phoneNumber })
+                    .done(function (result) {
+
+                        showConfirmContainer();
+
+                    })
+                    .fail(function (error) {
+
+                        console.log("'/api/auth/phone/send-code' failed: " + error);
+
+                    });
+            });
+
+            $('#form-confirm').submit(function (e) {
+
+                e.preventDefault();
+
+                model.code = $('#phone-code-input').val();
+
+                $.post('/api/auth/phone/confirm', { phone: model.phoneNumber, code: model.code })
+                    .done(function (result) {
+
+                    })
+                    .fail(function (error) {
+
+                        console.log("'/api/auth/phone/send-code' failed: " + error);
+
+                    });
+            });
+
+            $('#send-again-link').click(function (e) {
+
+                e.preventDefault();
+
+                showPhoneContainer();
+            });
+
+            function showConfirmContainer() {
+
+                $('#form-phone-container').hide();
+                $('#form-confirm-container').show();
+            }
+
+            function showPhoneContainer() {
+
+                $('#form-phone-container').show();
+                $('#form-confirm-container').hide();
+            }
+        });
+
+        $(document).ready(function () {
+
+            $('#routing-number-input').change(function (e) {
+
+                var routingNumber = $(this).val();
+
+                $.get('api/common/bankNames?routingNumber=' + routingNumber).done(function (result) {
+
+                    if (result.success) {
+
+                        $('#bank-name-label').val(result.bankName);
+                    }
+                    
+                });
+
+            });
+            
+        });
+        
+
+        
+    </script>
+}
+
+@section Styles {
+
+    <link rel="stylesheet" href="~/css/login.component.css" />
+}

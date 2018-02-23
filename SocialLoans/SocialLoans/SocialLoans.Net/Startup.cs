@@ -216,6 +216,7 @@ namespace SocialLoans
             services.AddScoped<IStripeService, StripeService>();
             services.AddScoped<ISocialLoansAuthentication, SocialLoansAuthentication>();
             services.AddScoped<IDataDomains, DataDomains>();
+            services.AddScoped<ICommunicationService, CommunicationService>();
 
             // Repositories
             services.AddScoped<SocialLoans.Logging.ILog, SocialLoans.Logging.NullLogger>();
